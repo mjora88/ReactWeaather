@@ -1,10 +1,10 @@
-var webpack = require ('webpack');
+var webpack = require('webpack');
 
 module.exports = {
   entry: [
-  'script!jquery/dist/jquery.min.js',
-  'script!foundation-sites/dist/foundation.min.js',
-  './app/app.jsx'
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx'
   ],
   externals: {
     jquery: 'jQuery'
@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       '$': 'jquery',
-      'jQuery':'jquery'
+      'jQuery': 'jquery'
     })
   ],
   output: {
@@ -31,7 +31,7 @@ module.exports = {
       Examples: 'app/components/Examples.jsx',
       openWeatherMap: 'app/api/openWeatherMap.jsx',
       ErrorModal: 'app/components/ErrorModal.jsx',
-      applicationStyles: 'app/styles/app.css'
+      applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -40,7 +40,7 @@ module.exports = {
       {
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015', 'stage-0']
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
